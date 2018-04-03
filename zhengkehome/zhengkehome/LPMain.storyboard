@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wsU-On-YOE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wsU-On-YOE">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -29,7 +29,7 @@
             </objects>
             <point key="canvasLocation" x="-1226" y="-33"/>
         </scene>
-        <!--View Controller-->
+        <!--预览-->
         <scene sceneID="Ihm-4p-IoY">
             <objects>
                 <viewController id="rHv-RD-w16" sceneMemberID="viewController">
@@ -39,7 +39,7 @@
                         <color key="backgroundColor" red="1" green="0.49803921569999998" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="Xnx-KO-CGv"/>
                     </view>
-                    <navigationItem key="navigationItem" id="fDP-Ve-inq"/>
+                    <navigationItem key="navigationItem" title="预览" id="fDP-Ve-inq"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N6s-BV-wWF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -62,7 +62,7 @@
             </objects>
             <point key="canvasLocation" x="-1226" y="-750"/>
         </scene>
-        <!--Table View Controller-->
+        <!--发布-->
         <scene sceneID="XRd-DF-Z4l">
             <objects>
                 <tableViewController id="Q4N-PM-Xoe" sceneMemberID="viewController">
@@ -171,7 +171,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="层" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blR-V2-EDC">
-                                                    <rect key="frame" x="355" y="10" width="10" height="21"/>
+                                                    <rect key="frame" x="355" y="13" width="10" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -519,7 +519,10 @@
                             <outlet property="delegate" destination="Q4N-PM-Xoe" id="3Ig-Vx-RwI"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="geb-et-vej"/>
+                    <navigationItem key="navigationItem" title="发布" id="geb-et-vej">
+                        <barButtonItem key="leftBarButtonItem" title="保存" id="vnA-F1-4fR"/>
+                        <barButtonItem key="rightBarButtonItem" title="上传" id="0Oz-XT-H8w"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UiR-kY-hes" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -128,10 +128,18 @@ static CGRect keyboardFrame = (CGRect){{0.0f, 0.0f}, {0.0f, 0.0f}};
         
         _indicatorView = [[JGProgressHUDIndeterminateIndicatorView alloc] initWithHUDStyle:self.style];
         
-        _cornerRadius = 10.0f;
     }
     
     return self;
+}
+
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    _cornerRadius = 10.0f;
+    [self applyCornerRadius];
+    
 }
 
 + (instancetype)progressHUDWithStyle:(JGProgressHUDStyle)style {
