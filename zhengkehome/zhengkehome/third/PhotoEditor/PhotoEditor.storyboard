@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bcD-0m-c34">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Photo Editor View Controller-->
+        <scene sceneID="KFj-Yr-W0E">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="bcD-0m-c34" customClass="LTPhotoEditorViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fsV-bL-CSI"/>
+                        <viewControllerLayoutGuide type="bottom" id="9w2-GC-Oin"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BmQ-Hd-iJK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Ec-u8-7UY" customClass="LTMaskClipView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view alpha="0.5899999737739563" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0FU-HG-E9v">
+                                <rect key="frame" x="0.0" y="595" width="375" height="72"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5hS-Hh-ZWp">
+                                        <rect key="frame" x="16" y="16" width="80" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="Zn9-fI-8i0"/>
+                                            <constraint firstAttribute="height" constant="40" id="npz-kH-53z"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <state key="normal" title="取消">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="invokeOnCancel:" destination="bcD-0m-c34" eventType="touchUpInside" id="h9u-30-65j"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Sg-uF-vU1">
+                                        <rect key="frame" x="279" y="16" width="80" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="ZyQ-uo-iOH"/>
+                                            <constraint firstAttribute="width" constant="80" id="eVT-Z6-MY2"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <state key="normal" title="选取"/>
+                                        <state key="disabled">
+                                            <color key="titleColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="invokeOnPickImage:" destination="bcD-0m-c34" eventType="touchUpInside" id="BHS-Ow-SZN"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="5hS-Hh-ZWp" firstAttribute="leading" secondItem="0FU-HG-E9v" secondAttribute="leading" constant="16" id="Caj-Qp-pwe"/>
+                                    <constraint firstAttribute="trailing" secondItem="8Sg-uF-vU1" secondAttribute="trailing" constant="16" id="RBJ-4D-bz5"/>
+                                    <constraint firstAttribute="height" constant="72" id="crF-CE-Lx8"/>
+                                    <constraint firstItem="8Sg-uF-vU1" firstAttribute="centerY" secondItem="0FU-HG-E9v" secondAttribute="centerY" id="ff8-GU-ADw"/>
+                                    <constraint firstItem="5hS-Hh-ZWp" firstAttribute="centerY" secondItem="0FU-HG-E9v" secondAttribute="centerY" id="rK0-xc-sto"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="0FU-HG-E9v" firstAttribute="leading" secondItem="BmQ-Hd-iJK" secondAttribute="leading" id="28W-JN-Pa7"/>
+                            <constraint firstItem="9w2-GC-Oin" firstAttribute="top" secondItem="5Ec-u8-7UY" secondAttribute="bottom" id="9pZ-w8-ftA"/>
+                            <constraint firstAttribute="trailing" secondItem="0FU-HG-E9v" secondAttribute="trailing" id="GH7-Hh-tl0"/>
+                            <constraint firstItem="5Ec-u8-7UY" firstAttribute="leading" secondItem="BmQ-Hd-iJK" secondAttribute="leading" id="dYB-Z1-mMy"/>
+                            <constraint firstAttribute="trailing" secondItem="5Ec-u8-7UY" secondAttribute="trailing" id="g0Z-MX-TGc"/>
+                            <constraint firstItem="5Ec-u8-7UY" firstAttribute="top" secondItem="BmQ-Hd-iJK" secondAttribute="top" id="gsg-G0-D60"/>
+                            <constraint firstItem="9w2-GC-Oin" firstAttribute="top" secondItem="0FU-HG-E9v" secondAttribute="bottom" id="gyY-ni-krA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="actionView" destination="0FU-HG-E9v" id="JPd-Lf-xVm"/>
+                        <outlet property="cancelButton" destination="5hS-Hh-ZWp" id="g3V-wY-F2o"/>
+                        <outlet property="clipView" destination="5Ec-u8-7UY" id="t2H-dd-CoA"/>
+                        <outlet property="pickButton" destination="8Sg-uF-vU1" id="PPn-io-s9w"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BrF-Z7-B6C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3675" y="563"/>
+        </scene>
+    </scenes>
+</document>

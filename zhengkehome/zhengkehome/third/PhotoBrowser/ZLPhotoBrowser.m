@@ -11,7 +11,7 @@
 #import "ZLPhotoManager.h"
 #import "ZLPhotoModel.h"
 #import "ZLThumbnailViewController.h"
-#import <SDWebImage/SDWebImageManager.h>
+#import "SDWebImageManager.h"
 
 @implementation ZLImageNavigationController
 
