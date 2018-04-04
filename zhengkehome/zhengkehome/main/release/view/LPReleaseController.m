@@ -16,16 +16,41 @@
 #import "ZLPhotoManager.h"
 #import "ZLProgressHUD.h"
 #import "ZLPhotoConfiguration.h"
+#import "LTPhotoEditorViewController.h"
+#import "LPConfig.h"
 
 #define kHeight 60
 
 
 @interface LPReleaseController ()<UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UITextField *houseTitleTextField;
+@property (weak, nonatomic) IBOutlet UITextField *houseAreaTextField;
+@property (weak, nonatomic) IBOutlet UITextField *houseOrientationTextField;
+@property (weak, nonatomic) IBOutlet UITextField *houseFloorTextField;
+@property (weak, nonatomic) IBOutlet UITextField *houseTypeTextField;
+@property (weak, nonatomic) IBOutlet UITextField *houseFunctionTextField;
+@property (weak, nonatomic) IBOutlet UITextField *HouseTitleTypeTextField;
+@property (weak, nonatomic) IBOutlet UITextField *housePriceTextField;
+@property (weak, nonatomic) IBOutlet UIButton *addHouseImageBtn;
+@property (weak, nonatomic) IBOutlet UITextView *houseAddressTextView;
+@property (weak, nonatomic) IBOutlet UITextView *houseContentTextView;
+@property (weak, nonatomic) IBOutlet UITextField *houseLordTextField;
+@property (weak, nonatomic) IBOutlet UITextField *lordPhoneNumTextField;
+@property (weak, nonatomic) IBOutlet UIImageView *lordIcon;
+@property (weak, nonatomic) IBOutlet UIButton *addIconBtn;
+@property (weak, nonatomic) IBOutlet UITextView *hopeTextView;
+
 @property (nonatomic, strong) NSMutableArray<UIImage *> *lastSelectPhotos;
 @property (nonatomic, strong) NSMutableArray<PHAsset *> *lastSelectAssets;
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (nonatomic, strong) NSMutableArray<UIImage *> *lastOneSelectPhotos;
+@property (nonatomic, strong) NSMutableArray<PHAsset *> *lastOneSelectAssets;
+
 @property (nonatomic, strong) NSArray *arrDataSources;
 @property (nonatomic, assign) BOOL isOriginal;
+
+@property (nonatomic, assign) BOOL isOneImage;
+
 
 @end
 
@@ -33,22 +58,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.automaticallyAdjustsScrollViewInsets = NO;
-    
     [self initCollectionView];
 }
 
 - (IBAction)addHouseImage:(id)sender {
+    self.isOneImage = NO;
     [self showWithPreview:NO];
 
 }
 
+- (IBAction)addLordIcon:(id)sender {
+    self.isOneImage = YES;
+    [self showWithPreview:NO];
+}
 
 
 - (void)showWithPreview:(BOOL)preview
@@ -85,9 +108,9 @@
 //    //设置在内部拍照按钮上实时显示相机俘获画面
 //    actionSheet.configuration.showCaptureImageOnTakePhotoBtn = self.showCaptureImageSwitch.isOn;
 //    //设置照片最大预览数
-//    actionSheet.configuration.maxPreviewCount = self.previewTextField.text.integerValue;
+//    actionSheet.configuration.maxPreviewCount = ;
 //    //设置照片最大选择数
-//    actionSheet.configuration.maxSelectCount = self.maxSelCountTextField.text.integerValue;
+    actionSheet.configuration.maxSelectCount = self.isOneImage?1:9;
 //    //设置允许选择的视频最大时长
 //    actionSheet.configuration.maxVideoDuration = self.maxVideoDurationTextField.text.integerValue;
 //    //设置照片cell弧度
@@ -127,21 +150,38 @@
     //如果调用的方法没有传sender，则该属性必须提前赋值
     actionSheet.sender = self;
     //记录上次选择的图片
-    actionSheet.arrSelectedAssets = self.lastSelectAssets;
+    actionSheet.arrSelectedAssets = self.isOneImage?self.lastOneSelectAssets:self.lastSelectAssets;
     
     zl_weakify(self);
     [actionSheet setSelectImageBlock:^(NSArray<UIImage *> * _Nonnull images, NSArray<PHAsset *> * _Nonnull assets, BOOL isOriginal) {
         zl_strongify(weakSelf);
-        strongSelf.arrDataSources = images;
-        strongSelf.isOriginal = isOriginal;
-        strongSelf.lastSelectAssets = assets.mutableCopy;
-        strongSelf.lastSelectPhotos = images.mutableCopy;
-        [strongSelf.collectionView reloadData];
-        NSLog(@"image:%@", images);
-        //解析图片
-//        if (!strongSelf.allowAnialysisAssetSwitch.isOn) {
+        if (self.isOneImage) {
+            LTPhotoEditorViewController *photoEditor = [[UIStoryboard storyboardWithName:@"PhotoEditor" bundle:[NSBundle mainBundle]]instantiateInitialViewController];
+            photoEditor.hidesBottomBarWhenPushed = YES;
+            photoEditor.imageName = @"lordIcon";
+            photoEditor.originImage = images.firstObject;
+            [photoEditor setIsCircleCrop:YES];
+            [photoEditor setCropSize:CGSizeMake(CGRectGetWidth([[self view] frame]), CGRectGetWidth([[self view] frame]))];
+            [photoEditor setFinishHandler:^(LTPhotoEditorViewController *editorViewController, UIImage *image, NSString *imageName) {
+                self.lordIcon.image = image;
+                [[self navigationController] popViewControllerAnimated:YES];
+                //刘璞
+                strongSelf.lastOneSelectAssets = assets.mutableCopy;
+                strongSelf.lastOneSelectPhotos = images.mutableCopy;
+            }];
+            
+            [self.navigationController pushViewController:photoEditor animated:YES];
+        } else {
+            strongSelf.arrDataSources = images;
+            strongSelf.isOriginal = isOriginal;
+            strongSelf.lastSelectAssets = assets.mutableCopy;
+            strongSelf.lastSelectPhotos = images.mutableCopy;
+            [strongSelf.collectionView reloadData];
+            NSLog(@"image:%@", images);
             [strongSelf anialysisAssets:assets original:isOriginal];
-//        }
+        }
+        
+        //解析图片
     }];
     
     actionSheet.cancleBlock = ^{
@@ -184,7 +224,15 @@
     self.collectionView.showsVerticalScrollIndicator = NO;
     self.collectionView.showsHorizontalScrollIndicator = NO;
     self.collectionView.collectionViewLayout = layout;
-    self.collectionView.backgroundColor = [UIColor whiteColor];
+    self.collectionView.backgroundColor = [UIColor clearColor];
+    
+    
+    //设置textView控件的颜色
+    self.houseAddressTextView.layer.borderColor = [LPColor(215, 215, 215) CGColor];
+    self.hopeTextView.layer.borderColor = [LPColor(215, 215, 215) CGColor];
+    self.houseContentTextView.layer.borderColor = [LPColor(215, 215, 215) CGColor];
+    
+//    self.tableView.backgroundColor = LPColor(172, 172, 172);
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -202,10 +250,6 @@
     return cell;
 }
 
-
-
-
-
 #pragma mark - Table view data source
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row ==6&&indexPath.row ==10) {
@@ -215,25 +259,6 @@
     }
 }
 
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//#warning Incomplete implementation, return the number of sections
-//    return 0;
-//}
-//
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//#warning Incomplete implementation, return the number of rows
-//    return 0;
-//}
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
 #pragma mark - text field delegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

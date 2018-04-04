@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5208A767206F303700F6B9EA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5208A766206F303700F6B9EA /* AppDelegate.m */; };
-		5208A76F206F303700F6B9EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5208A76E206F303700F6B9EA /* Assets.xcassets */; };
 		5208A772206F303700F6B9EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5208A770206F303700F6B9EA /* LaunchScreen.storyboard */; };
 		5208A775206F303700F6B9EA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5208A774206F303700F6B9EA /* main.m */; };
 		522F99FC206F665E001BCA9E /* LPRelease.m in Sources */ = {isa = PBXBuildFile; fileRef = 522F99FB206F665E001BCA9E /* LPRelease.m */; };
@@ -132,13 +131,16 @@
 		52997B6120737E3F008EC270 /* LTMaskImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52997B5C20737E3F008EC270 /* LTMaskImageView.m */; };
 		52997B6220737E3F008EC270 /* LTPhotoEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52997B5E20737E3F008EC270 /* LTPhotoEditorViewController.m */; };
 		52997B6320737E3F008EC270 /* PhotoEditor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52997B5F20737E3F008EC270 /* PhotoEditor.storyboard */; };
+		52997B662074BF42008EC270 /* LPTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52997B652074BF42008EC270 /* LPTabBarController.m */; };
+		52997B682074C371008EC270 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52997B672074C371008EC270 /* Assets.xcassets */; };
+		52997B6B2074CC91008EC270 /* LPNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52997B6A2074CC91008EC270 /* LPNavigationController.m */; };
+		52997B6E2074CEEF008EC270 /* LPConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 52997B6D2074CEEF008EC270 /* LPConfig.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5208A762206F303700F6B9EA /* zhengkehome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zhengkehome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5208A765206F303700F6B9EA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5208A766206F303700F6B9EA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		5208A76E206F303700F6B9EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5208A771206F303700F6B9EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5208A773206F303700F6B9EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5208A774206F303700F6B9EA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -383,6 +385,13 @@
 		52997B5D20737E3F008EC270 /* LTPhotoEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPhotoEditorViewController.h; sourceTree = "<group>"; };
 		52997B5E20737E3F008EC270 /* LTPhotoEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPhotoEditorViewController.m; sourceTree = "<group>"; };
 		52997B5F20737E3F008EC270 /* PhotoEditor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PhotoEditor.storyboard; sourceTree = "<group>"; };
+		52997B642074BF42008EC270 /* LPTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LPTabBarController.h; sourceTree = "<group>"; };
+		52997B652074BF42008EC270 /* LPTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LPTabBarController.m; sourceTree = "<group>"; };
+		52997B672074C371008EC270 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		52997B692074CC91008EC270 /* LPNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LPNavigationController.h; sourceTree = "<group>"; };
+		52997B6A2074CC91008EC270 /* LPNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LPNavigationController.m; sourceTree = "<group>"; };
+		52997B6C2074CEEF008EC270 /* LPConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LPConfig.h; sourceTree = "<group>"; };
+		52997B6D2074CEEF008EC270 /* LPConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LPConfig.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -426,7 +435,7 @@
 				522F992C206F61BD001BCA9E /* main */,
 				5208A765206F303700F6B9EA /* AppDelegate.h */,
 				5208A766206F303700F6B9EA /* AppDelegate.m */,
-				5208A76E206F303700F6B9EA /* Assets.xcassets */,
+				52997B672074C371008EC270 /* Assets.xcassets */,
 				5208A770206F303700F6B9EA /* LaunchScreen.storyboard */,
 				5208A773206F303700F6B9EA /* Info.plist */,
 				5208A774206F303700F6B9EA /* main.m */,
@@ -439,6 +448,10 @@
 			children = (
 				522F99F7206F65C7001BCA9E /* preview */,
 				522F99F4206F65C7001BCA9E /* release */,
+				52997B642074BF42008EC270 /* LPTabBarController.h */,
+				52997B652074BF42008EC270 /* LPTabBarController.m */,
+				52997B692074CC91008EC270 /* LPNavigationController.h */,
+				52997B6A2074CC91008EC270 /* LPNavigationController.m */,
 			);
 			path = main;
 			sourceTree = "<group>";
@@ -532,6 +545,8 @@
 				52997A0E20720D39008EC270 /* UIView+EasyUseGeometry.m */,
 				52997A0F20720D39008EC270 /* UIView+GCExtension.h */,
 				52997A1020720D39008EC270 /* UIView+GCExtension.m */,
+				52997B6C2074CEEF008EC270 /* LPConfig.h */,
+				52997B6D2074CEEF008EC270 /* LPConfig.m */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -944,8 +959,8 @@
 				52997AA520720D39008EC270 /* JGProgressHUD Resources.bundle in Resources */,
 				52997A9A20720D39008EC270 /* README.md in Resources */,
 				52997A9920720D39008EC270 /* LICENSE in Resources */,
-				5208A76F206F303700F6B9EA /* Assets.xcassets in Resources */,
 				52997AC220720D39008EC270 /* README.md in Resources */,
+				52997B682074C371008EC270 /* Assets.xcassets in Resources */,
 				52997AB120720D39008EC270 /* LICENSE.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -958,12 +973,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5208A775206F303700F6B9EA /* main.m in Sources */,
+				52997B662074BF42008EC270 /* LPTabBarController.m in Sources */,
 				52997B0B207356BD008EC270 /* ZLCustomCamera.m in Sources */,
 				52997A8520720D39008EC270 /* LTBaseNavigationController.m in Sources */,
 				52997AAB20720D39008EC270 /* JGProgressHUDImageIndicatorView.m in Sources */,
 				52997A9520720D39008EC270 /* AFSecurityPolicy.m in Sources */,
 				52997A8A20720D39008EC270 /* GCBaseModel.m in Sources */,
 				522F9A01206F7829001BCA9E /* LPPreview.m in Sources */,
+				52997B6E2074CEEF008EC270 /* LPConfig.m in Sources */,
 				52997B4020735741008EC270 /* SDImageCache.m in Sources */,
 				52997A8920720D39008EC270 /* LTBaseViewController.m in Sources */,
 				52997B10207356CE008EC270 /* ZLPhotoActionSheet.m in Sources */,
@@ -1023,6 +1040,7 @@
 				52997B13207356D7008EC270 /* ZLPhotoConfiguration.m in Sources */,
 				52997ABE20720D39008EC270 /* NSError+MTLModelException.m in Sources */,
 				52997A9320720D39008EC270 /* AFHTTPSessionManager.m in Sources */,
+				52997B6B2074CC91008EC270 /* LPNavigationController.m in Sources */,
 				52997A9720720D39008EC270 /* AFURLResponseSerialization.m in Sources */,
 				52997A8320720D39008EC270 /* LPNetWork.m in Sources */,
 				52997ABB20720D39008EC270 /* NSDictionary+MTLJSONKeyPath.m in Sources */,
